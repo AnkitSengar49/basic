@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovators of Tomorrow</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+       
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .content {
+            display: none; /* Hide all content by default */
+        }
+        .visible {
+            display: block; /* Show only the active section */
+        }
+        footer {
+            background-color: #fdfd96;
+            text-align: center;
+            padding: 10px;
+        }
+        form input, form button {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #add8e6;
+            color: white;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #3399ff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="color: white; font-size: 40px;">Innovators of Tomorrow</h1>
+</header>
+
+<nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('econtent')"> E Content</a>
+    <a onclick="showPage('login')">Student Login</a>
+    <a href="https://muskaandreams.org">Muskaan Dreams</a>
+    <a onclick="showPage('contact')">Contact Us</a>
+</nav>
+
+<marquee style="background-color: black; color: white; font-size: 20px;">
+    Classes will resume from July 1, 2025
+</marquee>
+
+<!-- Home Section -->
+<div>
+    <div id="home" class="content visible">
+        <section class="intro">
+            <p>Welcome to the Innovators of Tomorrow program, designed to nurture young minds into future leaders and thinkers. Explore, learn, and grow with us!</p>
+        </section>
+    <!-- Image Slider Section -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="img1.jpg" alt="IoT Image 1"></div>
+            <div class="slide"><img src="img2.jpg" alt="IoT Image 2"></div>
+            <div class="slide"><img src="img3.jpg" alt="IoT Image 3"></div>
+        </div>
+      
+    </div> 
+    
+        <p class="intro">Innovators of Tomorrow is a transformative program initiated by Muskaan Dreams, supported by our CSR partners, and in collaboration with the State Governments of India. Designed to enhance computational thinking and foster essential 21st-century skills among students from Grade 6 to 12, the program focuses on hands-on learning experiences.Through interactive training sessions led by expert trainers, engaging hackathons, and comprehensive teacher training workshops, we aim to create a sustainable impact that empowers both students and educators for the future.</p>
+
+    
+    
+    
+    </div> 
+</div>
+
+
+
+<!-- E-Content Section -->
+<div id="econtent" class="content">
+    <h2>E Content</h2>
+    <p>Access a wide range of learning materials and resources.</p>
+</div>
+
+<!-- Student Login Section -->
+<div id="login" class="content">
+    <h2>Student Login</h2>
+    <form>
+        <label>Username: <input type="text" placeholder="Enter username"></label><br><br>
+        <label>Password: <input type="password" placeholder="Enter password"></label><br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<!-- Contact Us Section -->
+<div id="contact" class="content"> 
+    <img src="img5.jpg" alt="Student operating a computer in IOT Hub" style="width: auto;" height="500px">
+   <br><br><br><br><br> <h2>Contact Us</h2>
+    <p>Email: contact@innovatorsoftomorrow.com</p>
+    <p>Phone: 123-456-7890</p>
+</div>
+
+<footer style="background-color:lightblue;">
+    <p >&copy; 2025 Innovators of Tomorrow</p>
+</footer>
+
+<script>
+    // Function to show the selected page and hide others
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.content');
+        pages.forEach(page => page.classList.remove('visible')); // Hide all pages
+
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('visible'); // Show the selected page
+        }
+    }
+
+    // Image Slider Functionality
+    let currentIndex = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function showSlide(index) {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+</script>
+</body>
+</html>
